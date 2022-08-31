@@ -6,7 +6,7 @@ import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import deleteApiKey from '@/api/account/deleteApiKey';
-import FlashMessageRender from '@/components/FlashMessageRender';
+import FlashMessageRender from '@/components/elements/FlashMessageRender';
 import { format } from 'date-fns';
 import PageContentBlock from '@/components/elements/PageContentBlock';
 import tw from 'twin.macro';

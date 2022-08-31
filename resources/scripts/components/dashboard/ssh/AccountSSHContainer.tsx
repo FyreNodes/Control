@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ContentBox from '@/components/elements/ContentBox';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
-import FlashMessageRender from '@/components/FlashMessageRender';
+import FlashMessageRender from '@/components/elements/FlashMessageRender';
 import PageContentBlock from '@/components/elements/PageContentBlock';
 import tw from 'twin.macro';
 import GreyRowBox from '@/components/elements/GreyRowBox';

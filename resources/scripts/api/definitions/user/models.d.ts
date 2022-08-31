@@ -6,6 +6,8 @@ interface User extends Model {
     username: string;
     email: string;
     image: string;
+    firstName: string;
+    lastName: string;
     twoFactorEnabled: boolean;
     createdAt: Date;
     permissions: SubuserPermission[];

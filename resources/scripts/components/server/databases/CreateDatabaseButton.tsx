@@ -6,7 +6,7 @@ import { object, string } from 'yup';
 import createServerDatabase from '@/api/server/databases/createServerDatabase';
 import { ServerContext } from '@/state/server';
 import { httpErrorToHuman } from '@/api/http';
-import FlashMessageRender from '@/components/FlashMessageRender';
+import FlashMessageRender from '@/components/elements/FlashMessageRender';
 import useFlash from '@/plugins/useFlash';
 import Button from '@/components/elements/Button';
 import tw from 'twin.macro';

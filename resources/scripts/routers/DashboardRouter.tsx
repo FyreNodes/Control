@@ -18,13 +18,15 @@ export default () => {
             {location.pathname.startsWith('/account') && (
                 <SubNavigation>
                     <div>
-                        {routes.account
-                            .filter((route) => !!route.name)
-                            .map(({ path, name, exact = false }) => (
+                        {routes.account.filter((route) => !!route.name).map(({ path, name, exact = false, icon }) => {
+                            const Icon = () => icon;
+
+                            return (
                                 <NavLink key={path} to={`/account/${path}`.replace('//', '/')} exact={exact}>
-                                    {name}
+                                    {icon && <div className={'h-4 w-4 mr-0.5'}><Icon/></div>}{name}
                                 </NavLink>
-                            ))}
+                            );
+                        })}
                     </div>
                 </SubNavigation>
             )}
@@ -32,15 +34,15 @@ export default () => {
                 <React.Suspense fallback={<Spinner centered />}>
                     <Switch location={location}>
                         <Route path={'/'} exact>
-                            <DashboardContainer />
+                            <DashboardContainer/>
                         </Route>
                         {routes.account.map(({ path, component: Component }) => (
                             <Route key={path} path={`/account/${path}`.replace('//', '/')} exact>
-                                <Component />
+                                <Component/>
                             </Route>
                         ))}
                         <Route path={'*'}>
-                            <NotFound />
+                            <NotFound/>
                         </Route>
                     </Switch>
                 </React.Suspense>

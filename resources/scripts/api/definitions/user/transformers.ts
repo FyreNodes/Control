@@ -18,6 +18,8 @@ export default class Transformers {
             username: attributes.username,
             email: attributes.email,
             image: attributes.image,
+            firstName: attributes.firstName,
+            lastName: attributes.lastName,
             twoFactorEnabled: attributes['2fa_enabled'],
             permissions: attributes.permissions || [],
             createdAt: new Date(attributes.created_at),

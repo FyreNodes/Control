@@ -40,6 +40,11 @@ module.exports = {
             borderColor: theme => ({
                 default: theme('colors.neutral.400', 'currentColor'),
             }),
+            backgroundColor: {
+                primary: '#0E0E23',
+                secondary: '#161933',
+                background: '#10122B'
+            }
         },
     },
     plugins: [

@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, {lazy, ReactNode} from 'react';
 import ServerConsole from '@/components/server/console/ServerConsoleContainer';
 import DatabasesContainer from '@/components/server/databases/DatabasesContainer';
 import ScheduleContainer from '@/components/server/schedules/ScheduleContainer';
@@ -13,6 +13,7 @@ import AccountApiContainer from '@/components/dashboard/AccountApiContainer';
 import AccountSSHContainer from '@/components/dashboard/ssh/AccountSSHContainer';
 import ActivityLogContainer from '@/components/dashboard/activity/ActivityLogContainer';
 import ServerActivityLogContainer from '@/components/server/ServerActivityLogContainer';
+import {InformationCircleIcon, KeyIcon, ServerStackIcon, UserIcon} from "@heroicons/react/24/solid";
 
 // Each of the router files is already code split out appropriately — so
 // all of the items above will only be loaded in when that router is loaded.
@@ -29,6 +30,7 @@ interface RouteDefinition {
     name: string | undefined;
     component: React.ComponentType;
     exact?: boolean;
+    icon: JSX.Element|null;
 }
 
 interface ServerRouteDefinition extends RouteDefinition {
@@ -49,21 +51,25 @@ export default {
             name: 'Account',
             component: AccountOverviewContainer,
             exact: true,
+            icon: <UserIcon/>
         },
         {
             path: '/api',
-            name: 'API Credentials',
+            name: 'API Keys',
             component: AccountApiContainer,
+            icon: <ServerStackIcon/>
         },
         {
             path: '/ssh',
             name: 'SSH Keys',
             component: AccountSSHContainer,
+            icon: <KeyIcon/>
         },
         {
             path: '/activity',
             name: 'Activity',
             component: ActivityLogContainer,
+            icon: <InformationCircleIcon/>
         },
     ],
     server: [
@@ -73,72 +79,84 @@ export default {
             name: 'Console',
             component: ServerConsole,
             exact: true,
+            icon: null
         },
         {
             path: '/files',
             permission: 'file.*',
             name: 'Files',
             component: FileManagerContainer,
+            icon: null
         },
         {
             path: '/files/:action(edit|new)',
             permission: 'file.*',
             name: undefined,
             component: FileEditContainer,
+            icon: null
         },
         {
             path: '/databases',
             permission: 'database.*',
             name: 'Databases',
             component: DatabasesContainer,
+            icon: null
         },
         {
             path: '/schedules',
             permission: 'schedule.*',
             name: 'Schedules',
             component: ScheduleContainer,
+            icon: null
         },
         {
             path: '/schedules/:id',
             permission: 'schedule.*',
             name: undefined,
             component: ScheduleEditContainer,
+            icon: null
         },
         {
             path: '/users',
             permission: 'user.*',
             name: 'Users',
             component: UsersContainer,
+            icon: null
         },
         {
             path: '/backups',
             permission: 'backup.*',
             name: 'Backups',
             component: BackupContainer,
+            icon: null
         },
         {
             path: '/network',
             permission: 'allocation.*',
             name: 'Network',
             component: NetworkContainer,
+            icon: null
         },
         {
             path: '/startup',
             permission: 'startup.*',
             name: 'Startup',
             component: StartupContainer,
+            icon: null
         },
         {
             path: '/settings',
             permission: ['settings.*', 'file.sftp'],
             name: 'Settings',
             component: SettingsContainer,
+            icon: null
         },
         {
             path: '/activity',
             permission: 'activity.*',
             name: 'Activity',
             component: ServerActivityLogContainer,
+            icon: null
         },
     ],
 } as Routes;
